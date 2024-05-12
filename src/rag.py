@@ -87,7 +87,7 @@ def validate_context_and_answer(example, pred, trace=None):
 teleprompter = BootstrapFewShot(metric=validate_context_and_answer)
 compiled_rag = teleprompter.compile(RAG(), trainset=trainset)
 
-my_question = "What castle did David Gregory inherit?"
+my_question = "What year was manchester united formed?"
 pred = compiled_rag(my_question)
 
 print(f"Question: {my_question}")
@@ -96,21 +96,21 @@ print(
     f"Retrieved Contexts (truncated): {[c[:200] + '...' for c in pred.context]}")
 
 
-# 5. Evaluating the Answers
-print("\n### Evaluating the Answers ###\n")
+# # 5. Evaluating the Answers
+# print("\n### Evaluating the Answers ###\n")
 
-# 5a. Basic RAG
-
-
-def gold_passages_retrieved(example, pred, trace=None):
-    gold_titles = set(
-        map(dspy.evaluate.normalize_text, example['gold_titles']))
-    found_titles = set(map(dspy.evaluate.normalize_text, [
-                       c.split(' | ')[0] for c in pred.context]))
-    return gold_titles.issubset(found_titles)
+# # 5a. Basic RAG
 
 
-evaluate_on_hotpotqa = Evaluate(
-    devset=devset, num_threads=1, display_progress=True, display_table=5)
-compiled_rag_retrieval_score = evaluate_on_hotpotqa(
-    compiled_rag, metric=gold_passages_retrieved)
+# def gold_passages_retrieved(example, pred, trace=None):
+#     gold_titles = set(
+#         map(dspy.evaluate.normalize_text, example['gold_titles']))
+#     found_titles = set(map(dspy.evaluate.normalize_text, [
+#                        c.split(' | ')[0] for c in pred.context]))
+#     return gold_titles.issubset(found_titles)
+
+
+# evaluate_on_hotpotqa = Evaluate(
+#     devset=devset, num_threads=1, display_progress=True, display_table=5)
+# compiled_rag_retrieval_score = evaluate_on_hotpotqa(
+#     compiled_rag, metric=gold_passages_retrieved)
