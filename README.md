@@ -1,8 +1,9 @@
 # RAG-Framework-using-DSPy 
-![image](https://github.com/Jeremyugo/RAG-Framework-using-DSPy/assets/36512525/5447d597-a593-467c-a90a-41574ad5cc57)
-
 
 This repo contains jupyter notebooks for building a RAG Application using Stanford's DSPy which is a framework for algorithmically optimizing LM prompts. 
+
+![image](https://github.com/Jeremyugo/RAG-Framework-using-DSPy/assets/36512525/5447d597-a593-467c-a90a-41574ad5cc57)
+
 
 ## Compiled Baleen RAG output
 ![image](https://github.com/Jeremyugo/RAG-Framework-using-DSPy/assets/36512525/eb3150a4-cc56-429d-b85b-70ca883587b6)
